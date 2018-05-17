@@ -42,6 +42,8 @@ Versao 0.1 10-3-2018   Vasco Batista  - Draft
 #define BOATAOVB_PRESSED_3 3
 #define BOATAOVB_PRESSED_4 4
 #define BOATAOVB_PRESSED_5 5
+// esrado inconsistente
+#define BOATAOVB_ERRO -1
 
 class BUTAOVB {
 public:
@@ -65,11 +67,11 @@ public:
 
 private:
     // variaveis do butap
-    //define o pin do butao
-    int _butao_pin;
+    //define o pin do butao, constante no Objeto
+    int __butao_pin;
 
-    //define o estado do butaõ pressionado
-    int _butao_stat;
+    //define o estado do butaõ pressionado, constante no Objeto
+    int __butao_press;
 
     // contador que define o numero de vezes pressionado
     int _cont;
