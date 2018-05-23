@@ -2,6 +2,8 @@
 codigo para a gestão do butao
 
 Vasco Batista 19-5-2018 - V 1.0  Butao VB a funcionar
+Vasco Batista 24-5-2018 - V 1.10  Butao VB a funcionar para LOW
+
 */
 
 #include "butaovb.h"
@@ -19,8 +21,8 @@ BUTAOVB::BUTAOVB(int PIN, int press_status) {
 
   // inicializa contador que define o numero de vezes pressionado
   _cont = 0;
-  // inicializa estado do ultima consulta
-  _last_butao_status = 0;
+  // inicializa estado do ultima consulta para butao não pressionado
+  _last_butao_status = !__butao_press;
   // inicializa tempo em milisegundos da ultima alteraç\ao
   _last_change_milis = 0;
 
@@ -30,8 +32,9 @@ BUTAOVB::BUTAOVB(int PIN, int press_status) {
 void BUTAOVB::reset_butao() {
   // inicializa contador que define o numero de vezes pressionado
   _cont = 0;
-  // inicializa estado do ultima consulta
-  _last_butao_status = 0;
+  // inicializa estado do ultima consulta para butao não pressionado
+  _last_butao_status = !__butao_press;
+
   // inicializa tempo em milisegundos da ultima alteraç\ao
   _last_change_milis = 0;
 
@@ -71,18 +74,33 @@ int BUTAOVB::check_butao() {
 //debug LED13 igual ao butão
 digitalWrite(13,butao_input);
 
+// Debug print to serial, necessário iniciar serial no main (  Serial.begin(9600);)
+/*
+Serial.print("P:");
+Serial.print(__butao_press);
+Serial.print(" L:");
+Serial.print(_last_butao_status);
+Serial.print(" C:");
+Serial.print(_cont);
+Serial.print(" I:");
+Serial.println(butao_input);
+*/
 // verifica estados de error
 // butao não primido e contador em BOATAOVB_CONTINUO
 // butão pressionado e contado 0
 if ( ((_last_butao_status != __butao_press) & (_cont == BOATAOVB_CONTINUO)) |
 ((_last_butao_status == __butao_press) & (_cont == 0)) ){
   return BOATAOVB_ERRO;
+
 }
+
 
 
 // primeira condição estado anterior do butao
 if (_last_butao_status == __butao_press) {
   // 1 - ultimo estado do butão era pressionado
+  //Atualiza ultimo estado do butão
+  _last_butao_status = butao_input;
   // 2 condição estado atual do butão
   if (butao_input == __butao_press) {
   // 2 - butão esta pressionado
@@ -103,8 +121,7 @@ if (_last_butao_status == __butao_press) {
     return output;
   } else {
     // 2 - butão NÂO esta pressionado
-    // _last_butao_status é NÂO __butao_press
-    _last_butao_status = !__butao_press;
+
     //reset do time
     _last_change_milis = now_milis;
     if (_cont == BOATAOVB_CONTINUO ) {
@@ -127,7 +144,10 @@ if (_last_butao_status == __butao_press) {
 
  else {
   // 1- ultimo estado do butão era NÃO pressionado
-  // 2 condiç\ao estado atual do butão
+  //Atualiza ultimo estado do butão
+  _last_butao_status = butao_input;
+  //reset do time
+  // 2 condição estado atual do butão
   if (butao_input == __butao_press) {
     // 2 - butão esta pressionado
     // incrementa o contador, mantem o _last_butao_status

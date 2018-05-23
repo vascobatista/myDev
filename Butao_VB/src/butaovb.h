@@ -34,9 +34,9 @@ Vasco Batista 1.0 19-5-2018 - V 1.0  Butao VB a funcionar
 #include <Arduino.h>
 
 // Tempo T1 - tempo de espera para contar novo click
-#define BUTAO_T1 50
+#define BUTAO_T1 200
 // Tempo T2 - tempo para para contagem e dar resultado
-#define BUTAO_T2 100
+#define BUTAO_T2 300
 
 // Define tipo de açoes do butaovb
 #define BOATAOVB_CONTINUO 999 // pressionado continuamente
@@ -46,6 +46,11 @@ Vasco Batista 1.0 19-5-2018 - V 1.0  Butao VB a funcionar
 #define BOATAOVB_PRESSED_3 3
 #define BOATAOVB_PRESSED_4 4
 #define BOATAOVB_PRESSED_5 5
+#define BOATAOVB_PRESSED_6 6
+#define BOATAOVB_PRESSED_7 7
+#define BOATAOVB_PRESSED_8 8
+#define BOATAOVB_PRESSED_9 9
+#define BOATAOVB_PRESSED_10 10
 // esrado inconsistente
 #define BOATAOVB_ERRO -1
 
