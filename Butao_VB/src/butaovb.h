@@ -17,7 +17,11 @@ ___|  |_______|  |__|  |_________|         |_________
 
    continuo - pressionado mais que t2
 
-Versao 0.1 10-3-2018   Vasco Batista  - Draft
+NOTA: configuração do input PIN feita fora do package
+
+
+Versao Batista 0.1 10-3-2018   Vasco Batista  - Draft
+Vasco Batista 1.0 19-5-2018 - V 1.0  Butao VB a funcionar
 
 
 

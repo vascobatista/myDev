@@ -4,13 +4,35 @@
 /*
 programa simples para testar o codigo do butão
 
+Versão VB butao 1.0  teste com butão port 3
+
 */
 
+// Define os butoes de acordo com esquema teste
+// butoes INPUT_PULLUP => config do BOATAOVB = LOW
+#define  _B1 2
+#define  _B2 3
+#define  _B3 4
 
-BUTAOVB mybutao(3,HIGH);
+
+//define o butão1 da breadboar de testes com INPUT_PULLUP como LOW
+BUTAOVB mybutao(_B1,LOW);
+
+
+
+
 
 void setup() {
-  // put your setup code here, to run once:
+
+ // onfigura o butão1 B1 breadboar de testes com INPUT_PULLUP
+ pinMode(_B1, INPUT_PULLUP);
+
+ //config led TST - pin 13
+ pinMode(13,OUTPUT);
+ digitalWrite(13,HIGH);
+ delay(200);
+ digitalWrite(13,LOW);
+
 
   // inicializa porta serie
   Serial.begin(9600);

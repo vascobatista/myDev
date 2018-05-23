@@ -1,5 +1,7 @@
 /*
 codigo para a gestão do butao
+
+Vasco Batista 19-5-2018 - V 1.0  Butao VB a funcionar
 */
 
 #include "butaovb.h"
@@ -8,7 +10,10 @@ BUTAOVB::BUTAOVB(int PIN, int press_status) {
 
   // construtor, inicializa o butaovb, constante Objeto
   __butao_pin = PIN;
-  pinMode(__butao_pin, INPUT);
+
+  // configuração do porto feita fora do packge
+  // para poder configurar com INPUT ou INPUT_PULLUP
+  //pinMode(__butao_pin, INPUT);
   //define o estado do butaõ pressionado
   __butao_press=press_status;
 
@@ -62,6 +67,9 @@ int BUTAOVB::check_butao() {
   butao_input = digitalRead(__butao_pin);
   now_milis = millis();
   delta_milis = now_milis - _last_change_milis;
+
+//debug LED13 igual ao butão
+digitalWrite(13,butao_input);
 
 // verifica estados de error
 // butao não primido e contador em BOATAOVB_CONTINUO
