@@ -38,6 +38,7 @@ ___|  |_______|  |__|  |_________|         |_________
    continuo - pressionado mais que t2
 
 Versao 0.1 10-3-2018   Vasco Batista  - Draft
+Versão 1.0 25-5-2018  Vasco Batista - Versão OK
 
 
 
