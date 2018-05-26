@@ -32,5 +32,3 @@ Then in `src/main.c` you should use:
 PlatformIO will find your libraries automatically, configure preprocessor's
 include paths and build them.
 
-More information about PlatformIO Library Dependency Finder
-- http://docs.platformio.org/page/librarymanager/ldf.html
