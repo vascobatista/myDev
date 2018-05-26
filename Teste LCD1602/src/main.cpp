@@ -2,6 +2,8 @@
 
 Teste do display LCD1602
 
+Teste do display com o BUTAOVB
+
 
 
 */
@@ -20,7 +22,7 @@ Pins ( rs = 3, en = 4, d4 = 5, d5 = 6, d6 = 7, d7 = 8;
 
 #define  _B1 11
 #define  _B2 10
-#define  _B3 1
+#define  _B3 2
 
 // inicializa os portos do LCD1602
 const int rs = 3, en = 4, d4 = 5, d5 = 6, d6 = 7, d7 = 8;
@@ -42,7 +44,8 @@ void setup() {
       pinMode(_B1, INPUT_PULLUP);
       pinMode(_B3, INPUT_PULLUP);
     // Print a message to the LCD.
-    lcd.print("Teste Vasco!!");
+    lcd.setCursor(2, 0);
+    lcd.print("** BUTAO **");
 
 
 
@@ -58,9 +61,40 @@ int B3_pressed;
 B1_pressed = mybutao1.check_butao();
 B3_pressed = mybutao3.check_butao();
 
-  // set the cursor to column 0, line 1
-// (note: line 1 is the second row, since counting begins with 0):
+// Butao 1 precionado
+lcd.setCursor(14, 1);
+switch (B1_pressed) {
+  case BOATAOVB_ERRO: lcd.print("1Erro");
+  break;
+  case BOATAOVB_CONTINUO: lcd.print("1C");
+  break;
+  case BOATAOVB_PRESSED_1: lcd.print("11");
+  break;
+  case BOATAOVB_PRESSED_2: lcd.print("12");
+  break;
+  case BOATAOVB_PRESSED_3: lcd.print("13");
+  break;
+}
+
+
+// Butao 3 precionado
 lcd.setCursor(0, 1);
+switch (B3_pressed) {
+  case BOATAOVB_ERRO: lcd.print("3Erro");
+  break;
+  case BOATAOVB_CONTINUO: lcd.print("3C");
+  break;
+  case BOATAOVB_PRESSED_1: lcd.print("31");
+  break;
+  case BOATAOVB_PRESSED_2: lcd.print("32");
+  break;
+  case BOATAOVB_PRESSED_3: lcd.print("33");
+  break;
+}
+//   TESTE LCD BASICO
+// set the cursor to column 0, line 1
+// (note: line 1 is the second row, since counting begins with 0):
+//lcd.setCursor(0, 1);
 // print the number of seconds since reset:
-lcd.print(millis() / 1000);
+//lcd.print(millis() / 1000);
 }

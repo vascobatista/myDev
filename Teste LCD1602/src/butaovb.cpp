@@ -72,7 +72,7 @@ int BUTAOVB::check_butao() {
   delta_milis = now_milis - _last_change_milis;
 
 //debug LED13 igual ao butão
-digitalWrite(13,butao_input);
+//digitalWrite(13,butao_input);
 
 // Debug print to serial, necessário iniciar serial no main (  Serial.begin(9600);)
 /*
