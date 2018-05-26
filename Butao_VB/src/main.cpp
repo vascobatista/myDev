@@ -20,7 +20,7 @@ Versão VB butao 1.1  teste com butão port 2 LOW pullup, port 4 HIGH
 //define o butão1 da breadboar de testes com INPUT_PULLUP como LOW
 BUTAOVB mybutao(_B1,LOW);
 // teste butao 3
-BUTAOVB mybutao3(_B3,HIGH);
+BUTAOVB mybutao3(_B3,LOW);
 
 
 
@@ -30,7 +30,7 @@ void setup() {
 
  // onfigura o butão1 B1 breadboar de testes com INPUT_PULLUP
  pinMode(_B1, INPUT_PULLUP);
- pinMode(_B3, INPUT);
+ pinMode(_B3, INPUT_PULLUP);
 
  //config led TST - pin 13
  pinMode(13,OUTPUT);
@@ -52,6 +52,7 @@ void loop() {
 
   // verifica o esta do b
   B_pressed = mybutao.check_butao();
+  B3_pressed = mybutao3.check_butao();
 
 // debug tempo entre tests
 //delay(2000);
