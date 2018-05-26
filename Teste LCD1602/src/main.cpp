@@ -6,7 +6,7 @@ Teste do display LCD1602
 
 */
 #include <Arduino.h>
-//#include <BUTAOVB.h>
+#include <BUTAOVB.h>
 // include the library code:
 #include <LiquidCrystal.h>
 
